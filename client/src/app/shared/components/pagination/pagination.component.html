@@ -1,0 +1,21 @@
+<ul class="uk-pagination uk-flex-right uk-margin-medium-top">
+  <li (click)="onPageClick(currentPage - 1)" [class.uk-disabled]="currentPage === 1"><a><span uk-pagination-previous></span></a></li>
+  <!-- First Page -->
+  <li (click)="onPageClick(1)" [class.uk-active]="currentPage === 1">
+    <a *ngIf="currentPage !== 1">1</a>
+    <span *ngIf="currentPage === 1">1</span>
+  </li>
+  <li *ngIf="isShowDotBefore" class="uk-disabled"><span>...</span></li>
+  <!-- List of Middle Page -->
+  <li *ngFor="let page of listMiddlePage" (click)="onPageClick(page)" [class.uk-active]="currentPage === page">
+    <a *ngIf="currentPage !== page">{{ page }}</a>
+    <span *ngIf="currentPage === page">{{ page }}</span>
+  </li>
+  <li *ngIf="isShowDotAfter" class="uk-disabled"><span>...</span></li>
+  <!-- Last Page -->
+  <li *ngIf="totalPage !== 1" (click)="onPageClick(totalPage)" [class.uk-active]="currentPage === totalPage">
+    <a *ngIf="currentPage !== totalPage">{{ totalPage }}</a>
+    <span *ngIf="currentPage === totalPage">{{ totalPage }}</span>
+  </li>
+  <li (click)="onPageClick(currentPage + 1)" [class.uk-disabled]="currentPage === totalPage"><a><span uk-pagination-next></span></a></li>
+</ul>

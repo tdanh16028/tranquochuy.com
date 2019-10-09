@@ -1,0 +1,81 @@
+<!-- Main Section -->
+<section uk-grid class="uk-grid-medium uk-padding-large">
+
+  <!-- Breadcrumb -->
+  <app-breadcrumb [breadcrumbItems]="breadcrumbItems" class="uk-width-1-1"></app-breadcrumb>
+
+  <!-- Section Content -->
+  <div class="uk-width-1-1 uk-width-2-3@s uk-width-3-4@m">
+
+    <!-- Section Product Details -->
+    <div class="uk-grid-medium uk-grid-match" uk-grid>
+
+      <!-- Product Image -->
+      <div class="uk-width-1-1 uk-width-1-3@m">
+        <img [src]="post.images[0]" width="" height="" alt="" uk-img>
+      </div>
+
+      <!-- Product Short Details -->
+      <div class="uk-width-1-1 uk-width-2-3@m">
+        <ul uk-tab>
+          <li class="uk-active"><a><span class="uk-text-large">{{ post.title }}</span></a></li>
+        </ul>
+        <span class="uk-label uk-text-large uk-width-auto">{{ post.estateProperties.price.amount | number:'':'en-US' }} VND</span>
+        <p>{{ post.moreInfo }}</p>
+      </div>
+
+      <!-- Product Details -->
+      <div class="uk-width-1-1">
+
+        <!-- Product Details -->
+        <div class="uk-section uk-section-muted uk-section-xsmall uk-margin-medium-bottom">
+          <ul uk-tab>
+            <li class="uk-active"><a><span style="font-size: 120%">Chi Tiết Sản Phẩm</span></a></li>
+          </ul>
+          <div class="uk-grid-divider uk-padding-small uk-padding-remove-vertical" uk-grid>
+            <div class="uk-width-1-2">
+              <p><b>Rộng:</b> {{ post.estateProperties.width }}m</p>
+              <p><b>Dài:</b> {{ post.estateProperties.length }}m</p>
+              <p><b>Diện tích:</b> {{ post.estateProperties.area }} m<sup>2</sup></p>
+            </div>
+            <div class="uk-width-1-2">
+              <p><b>Hướng:</b> {{ post.estateProperties.direction }}</p>
+              <p><b>Lộ giới:</b> {{ post.estateProperties.roadWidth }}m</p>
+              <p><b>Pháp lý:</b> {{ post.estateProperties.juridical }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Gallery -->
+        <div class="uk-section uk-section-muted uk-section-xsmall uk-margin-medium-bottom">
+          <ul uk-tab>
+            <li class="uk-active"><a><span style="font-size: 120%">Hình Ảnh Sản Phẩm</span></a></li>
+          </ul>
+          <div class="uk-padding-small uk-padding-remove-vertical">
+            <app-slider [listImageLink]="post.images"></app-slider>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- END Section Product Details -->
+
+  </div>
+  <!-- END Section Content -->
+
+  <!-- Section Contact & Info -->
+  <div class="uk-width-1-1 uk-width-1-3@s uk-width-1-4@m">
+
+    <!-- Section Contact -->
+    <app-box-contact></app-box-contact>
+    <!-- END Section Contact -->
+
+    <!-- Section Facebook -->
+    <app-box-facebook></app-box-facebook>
+    <!-- END Section Facebook -->
+
+  </div>
+  <!-- END Section Contact & Info -->
+
+</section>

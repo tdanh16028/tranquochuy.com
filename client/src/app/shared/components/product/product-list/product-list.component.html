@@ -1,0 +1,15 @@
+<div class="uk-section uk-section-muted uk-margin-medium-bottom uk-padding-small">
+  <ul uk-tab>
+    <li class="uk-active"><a>{{ title }}</a></li>
+  </ul>
+  <div class="uk-grid-column-small uk-grid-row-medium uk-child-width-1-2@s uk-child-width-1-3@l uk-child-width-1-4@xl" uk-grid>
+    <div *ngFor="let post of listPost">
+      <app-product-card [post]="post"></app-product-card>
+    </div>
+  </div>
+  <div *ngIf="buttonViewMoreLink" class="uk-align-right uk-margin-small-top">
+    <button [routerLink]="buttonViewMoreLink" class="uk-button uk-button-default">
+      <span uk-icon="plus-circle" class="uk-margin-small-right"></span> Xem thêm
+    </button>
+  </div>
+</div>

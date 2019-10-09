@@ -1,0 +1,6 @@
+<ul class="uk-breadcrumb">
+  <li *ngFor="let item of breadcrumbItems; last as isLast">
+    <a *ngIf="!isLast" [routerLink]="item.routerLink">{{ item.title }}</a>
+    <span *ngIf="isLast">{{ item.title }}</span>
+  </li>
+</ul>

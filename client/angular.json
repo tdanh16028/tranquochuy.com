@@ -28,9 +28,13 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/libs/uikit/css/uikit-theme.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/libs/uikit/js/uikit.min.js",
+              "src/assets/libs/uikit/js/uikit-icons.min.js"
+            ]
           },
           "configurations": {
             "production": {
