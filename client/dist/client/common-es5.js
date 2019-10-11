@@ -52,23 +52,61 @@
         this.listImages = ['assets/images/photo.jpg', 'assets/images/light.jpg', 'assets/images/dark.jpg'];
         this.listDirection = [_model_post_enums__WEBPACK_IMPORTED_MODULE_2__["Direction"].SOUTHEAST, _model_post_enums__WEBPACK_IMPORTED_MODULE_2__["Direction"].NORTHEAST, _model_post_enums__WEBPACK_IMPORTED_MODULE_2__["Direction"].SOUTHWEST, _model_post_enums__WEBPACK_IMPORTED_MODULE_2__["Direction"].NORTHWEST];
         this.listProductLand = this.listTitleLand.slice(0, 9).map(function (title, index) {
-          return _this.getRandomPost(title, index);
+          return _this.getRandomPost(title, 'dat-nen-' + index);
         });
         this.listProductHouse = this.listTitleHouse.slice(0, 9).map(function (title, index) {
-          return _this.getRandomPost(title, index);
+          return _this.getRandomPost(title, 'nha-o-' + index);
         });
         this.listProductSold = this.listTitleSold.slice(0, 9).map(function (title, index) {
-          return _this.getRandomPost(title, index);
+          return _this.getRandomPost(title, 'da-ban-' + index);
         });
       }
 
       var _proto = PostsService.prototype;
 
+      _proto.get = function get(postId) {
+        if (postId.startsWith('dat-nen')) {
+          return this.listProductLand.find(function (p) {
+            return p._id === postId;
+          });
+        }
+
+        if (postId.startsWith('nha-o')) {
+          return this.listProductHouse.find(function (p) {
+            return p._id === postId;
+          });
+        }
+
+        if (postId.startsWith('da-ban')) {
+          return this.listProductSold.find(function (p) {
+            return p._id === postId;
+          });
+        }
+
+        return null;
+      };
+
+      _proto.getRelatedProducts = function getRelatedProducts(postId) {
+        if (postId.startsWith('dat-nen')) {
+          return this.listProductLand;
+        }
+
+        if (postId.startsWith('nha-o')) {
+          return this.listProductHouse;
+        }
+
+        if (postId.startsWith('da-ban')) {
+          return this.listProductSold;
+        }
+
+        return null;
+      };
+
       _proto.getRandomPost = function getRandomPost(title, id) {
         var _this2 = this;
 
         return {
-          _id: id + '',
+          _id: id,
           title: title,
           images: new Array(Math.floor(Math.random() * 5) + 5).fill(0).map(function () {
             return _this2.getRandomImage();

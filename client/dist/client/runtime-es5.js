@@ -184,6 +184,7 @@
     return __webpack_require__.p + "" + ({
       "common": "common",
       "src-app-home-home-module": "src-app-home-home-module",
+      "src-app-product-details-product-details-module": "src-app-product-details-product-details-module",
       "src-app-products-products-module": "src-app-products-products-module"
     }[chunkId] || chunkId) +    "-es5.js";
     /******/

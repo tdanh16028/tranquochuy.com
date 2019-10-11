@@ -98,13 +98,37 @@ let PostsService = class PostsService {
             _model_post_enums__WEBPACK_IMPORTED_MODULE_2__["Direction"].SOUTHWEST,
             _model_post_enums__WEBPACK_IMPORTED_MODULE_2__["Direction"].NORTHWEST
         ];
-        this.listProductLand = this.listTitleLand.slice(0, 9).map((title, index) => this.getRandomPost(title, index));
-        this.listProductHouse = this.listTitleHouse.slice(0, 9).map((title, index) => this.getRandomPost(title, index));
-        this.listProductSold = this.listTitleSold.slice(0, 9).map((title, index) => this.getRandomPost(title, index));
+        this.listProductLand = this.listTitleLand.slice(0, 9).map((title, index) => this.getRandomPost(title, 'dat-nen-' + index));
+        this.listProductHouse = this.listTitleHouse.slice(0, 9).map((title, index) => this.getRandomPost(title, 'nha-o-' + index));
+        this.listProductSold = this.listTitleSold.slice(0, 9).map((title, index) => this.getRandomPost(title, 'da-ban-' + index));
+    }
+    get(postId) {
+        if (postId.startsWith('dat-nen')) {
+            return this.listProductLand.find(p => p._id === postId);
+        }
+        if (postId.startsWith('nha-o')) {
+            return this.listProductHouse.find(p => p._id === postId);
+        }
+        if (postId.startsWith('da-ban')) {
+            return this.listProductSold.find(p => p._id === postId);
+        }
+        return null;
+    }
+    getRelatedProducts(postId) {
+        if (postId.startsWith('dat-nen')) {
+            return this.listProductLand;
+        }
+        if (postId.startsWith('nha-o')) {
+            return this.listProductHouse;
+        }
+        if (postId.startsWith('da-ban')) {
+            return this.listProductSold;
+        }
+        return null;
     }
     getRandomPost(title, id) {
         return {
-            _id: id + '',
+            _id: id,
             title,
             images: (new Array(Math.floor(Math.random() * 5) + 5)).fill(0).map(() => this.getRandomImage()),
             estateProperties: this.getRandomEstateProperties(),
