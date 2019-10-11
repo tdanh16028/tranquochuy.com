@@ -29,17 +29,17 @@ export class ProductsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.metadata = [
       {
-        slug: 'dat-nen',
+        slug: 'san-pham-dat-nen',
         title: 'Sản Phẩm Đất Nền',
         listProduct: this.postService.listProductLand
       },
       {
-        slug: 'nha-o',
+        slug: 'san-pham-nha-o',
         title: 'Sản Phẩm Nhà Ở',
         listProduct: this.postService.listProductHouse
       },
       {
-        slug: 'da-ban',
+        slug: 'san-pham-da-ban',
         title: 'Sản Phẩm Đã Bán',
         listProduct: this.postService.listProductSold
       },

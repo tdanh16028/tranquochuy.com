@@ -10,8 +10,8 @@ export class PostsService {
   private listTitleLand: string[];
   private listTitleHouse: string[];
   private listTitleSold: string[];
-  private listImages: string[];
-  private listDirection: Direction[];
+  private readonly listImages: string[];
+  private readonly listDirection: Direction[];
 
   listProductLand: Partial<Post>[] = [];
   listProductHouse: Partial<Post>[] = [];
@@ -97,14 +97,48 @@ export class PostsService {
       Direction.NORTHWEST
     ];
 
-    this.listProductLand = this.listTitleLand.slice(0, 9).map((title, index) => this.getRandomPost(title, index));
-    this.listProductHouse = this.listTitleHouse.slice(0, 9).map((title, index) => this.getRandomPost(title, index));
-    this.listProductSold = this.listTitleSold.slice(0, 9).map((title, index) => this.getRandomPost(title, index));
+    this.listProductLand = this.listTitleLand.slice(0, 9).map((title, index) => this.getRandomPost(title, 'dat-nen-' + index));
+    this.listProductHouse = this.listTitleHouse.slice(0, 9).map((title, index) => this.getRandomPost(title, 'nha-o-' + index));
+    this.listProductSold = this.listTitleSold.slice(0, 9).map((title, index) => this.getRandomPost(title, 'da-ban-' + index));
   }
 
-  private getRandomPost(title: string, id: number): Partial<Post> {
+  get(postId: string): Partial<Post> {
+
+    if (postId.startsWith('dat-nen')) {
+      return this.listProductLand.find(p => p._id === postId);
+    }
+
+    if (postId.startsWith('nha-o')) {
+      return this.listProductHouse.find(p => p._id === postId);
+    }
+
+    if (postId.startsWith('da-ban')) {
+      return this.listProductSold.find(p => p._id === postId);
+    }
+
+    return null;
+  }
+
+  getRelatedProducts(postId: string): Partial<Post>[] {
+
+    if (postId.startsWith('dat-nen')) {
+      return this.listProductLand;
+    }
+
+    if (postId.startsWith('nha-o')) {
+      return this.listProductHouse;
+    }
+
+    if (postId.startsWith('da-ban')) {
+      return this.listProductSold;
+    }
+
+    return null;
+  }
+
+  private getRandomPost(title: string, id: string): Partial<Post> {
     return {
-      _id: id + '',
+      _id: id,
       title,
       images: (new Array(Math.floor(Math.random() * 5) + 5)).fill(0).map(() => this.getRandomImage()),
       estateProperties: this.getRandomEstateProperties(),

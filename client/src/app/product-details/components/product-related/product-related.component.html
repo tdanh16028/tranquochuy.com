@@ -1,0 +1,10 @@
+<div class="uk-section uk-section-muted uk-margin-medium-bottom uk-padding-small">
+  <ul uk-tab>
+    <li class="uk-active"><a>Sản Phẩm Liên Quan</a></li>
+  </ul>
+  <div class="uk-grid-column-small uk-grid-row-medium" uk-grid>
+    <div *ngFor="let post of listPost">
+      <app-product-related-card [post]="post"></app-product-related-card>
+    </div>
+  </div>
+</div>

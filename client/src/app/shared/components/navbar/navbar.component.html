@@ -26,9 +26,9 @@
         <ul class="uk-navbar-nav uk-visible@m">
           <li routerLinkActive="uk-active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/">Trang chủ</a></li>
           <li routerLinkActive="uk-active"><a routerLink="/gioi-thieu">Về tôi</a></li>
-          <li routerLinkActive="uk-active"><a routerLink="/san-pham/dat-nen">Sp đất nền</a></li>
-          <li routerLinkActive="uk-active"><a routerLink="/san-pham/nha-o">Sp nhà ở</a></li>
-          <li routerLinkActive="uk-active"><a routerLink="/san-pham/da-ban">Sp đã bán</a></li>
+          <li routerLinkActive="uk-active"><a routerLink="/danh-muc/san-pham-dat-nen">Sp đất nền</a></li>
+          <li routerLinkActive="uk-active"><a routerLink="/danh-muc/san-pham-nha-o">Sp nhà ở</a></li>
+          <li routerLinkActive="uk-active"><a routerLink="/danh-muc/san-pham-da-ban">Sp đã bán</a></li>
           <li routerLinkActive="uk-active"><a routerLink="/lien-he">Liên hệ</a></li>
         </ul>
       </div>
@@ -46,20 +46,20 @@
     <div class="uk-panel">
       <ul class="uk-nav uk-nav-default tm-nav">
         <li class="uk-nav-header">Menu</li>
-        <li routerLinkActive="uk-active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/">Trang chủ</a></li>
-        <li routerLinkActive="uk-active"><a routerLink="/gioi-thieu">Về tôi</a></li>
-        <li routerLinkActive="uk-active"><a routerLink="/lien-he">Liên hệ</a></li>
+        <li routerLinkActive="uk-active" [routerLinkActiveOptions]="{exact: true}" uk-toggle="target: #offcanvas"><a routerLink="/">Trang chủ</a></li>
+        <li routerLinkActive="uk-active" uk-toggle="target: #offcanvas"><a routerLink="/gioi-thieu">Về tôi</a></li>
+        <li routerLinkActive="uk-active" uk-toggle="target: #offcanvas"><a routerLink="/lien-he">Liên hệ</a></li>
       </ul>
       <ul class="uk-nav uk-nav-default tm-nav">
         <li class="uk-nav-header">Sản phẩm</li>
-        <li routerLinkActive="uk-active"><a routerLink="/san-pham/dat-nen">Sp đất nền</a></li>
-        <li routerLinkActive="uk-active"><a routerLink="/san-pham/nha-o">Sp nhà ở</a></li>
-        <li routerLinkActive="uk-active"><a routerLink="/san-pham/da-ban">Sp đã bán</a></li>
+        <li routerLinkActive="uk-active" uk-toggle="target: #offcanvas"><a routerLink="/danh-muc/san-pham-dat-nen">Sp đất nền</a></li>
+        <li routerLinkActive="uk-active" uk-toggle="target: #offcanvas"><a routerLink="/danh-muc/san-pham-nha-o">Sp nhà ở</a></li>
+        <li routerLinkActive="uk-active" uk-toggle="target: #offcanvas"><a routerLink="/danh-muc/san-pham-da-ban">Sp đã bán</a></li>
       </ul>
       <ul class="uk-nav uk-nav-default tm-nav">
         <li class="uk-nav-header">Chức năng</li>
-        <li><button class="uk-button uk-button-default uk-margin-small-top uk-width-expand">Đăng bài mới</button></li>
-        <li><button class="uk-button uk-button-default uk-margin-small-top uk-width-expand">Đăng nhập</button></li>
+        <li uk-toggle="target: #offcanvas"><button class="uk-button uk-button-default uk-margin-small-top uk-width-expand">Đăng bài mới</button></li>
+        <li uk-toggle="target: #offcanvas"><button class="uk-button uk-button-default uk-margin-small-top uk-width-expand">Đăng nhập</button></li>
       </ul>
     </div>
   </div>

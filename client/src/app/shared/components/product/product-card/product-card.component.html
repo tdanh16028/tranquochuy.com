@@ -1,9 +1,9 @@
-<div [routerLink]="'/san-pham/chi-tiet/' + post._id" class="uk-card uk-card-default uk-card-small uk-card-hover">
+<div [routerLink]="'/chi-tiet-san-pham/' + post._id" class="uk-card uk-card-default uk-card-small uk-card-hover">
   <div class="uk-card-media-top">
     <img [src]="post.images[0]" width="" height="180" alt="" uk-img>
   </div>
   <div class="uk-card-body">
-    <h5 class="" [title]="post.title">{{ post.title }}</h5>
+    <h5 class="uk-text-truncate" [attr.uk-tooltip]="post.title">{{ post.title }}</h5>
     <span class="uk-label">{{ post.estateProperties.price.amount | number:'':'en-US' }} VND</span>
     <p>
       <b>Diện tích:</b> {{ post.estateProperties.area }} m<sup>2</sup><br/>
